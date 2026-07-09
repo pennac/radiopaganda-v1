@@ -1,0 +1,111 @@
+/* ============================================================
+   RADIOPAGANDA V1 — Design System
+   ============================================================ */
+
+:root {
+  /* ── Palette V4 (sito istituzionale) ── */
+  --rp-black:  #0D0D0F;
+  --rp-red:    #D90000;
+  --rp-ice:    #DCDDE8;
+  --rp-white:  #FFFFFF;
+
+  /* ── Typography ── */
+  /* Archivo: grottesco editoriale/svizzero, range di pesi 100-900 nativo,
+     usato sia per i titoli (900) sia per il testo (300/400) per massimo
+     contrasto di spessore in stile Helvetica/Univers. */
+  --font-display: 'Archivo', sans-serif;
+  --font-text:    'Archivo', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+
+  /* ── Spacing ── */
+  --nav-h: 64px;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto; /* gestito da Lenis */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--rp-white);
+  color: var(--rp-black);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Links ── */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Wordmark ── */
+/* Usato solo nel footer (sfondo nero) ora che l'header mostra solo il logo:
+   PAGANDA deve essere bianco, altrimenti è nero su nero e sparisce. */
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.wordmark__radio   { font-weight: 100; color: var(--rp-red); }
+.wordmark__paganda { font-weight: 900; color: var(--rp-white); }
+
+/* ── Utility ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Page transition (flicker VHS) ── */
+/* Stessa firma visiva del glitch nel burger menu, riportata su ogni cambio
+   pagina: breve, non blocca la navigazione, dà coerenza al sito invece di
+   un cut secco. Rispetta prefers-reduced-motion tramite la regola sotto
+   (animation-duration forzato a 0.01ms). */
+.page-enter-active {
+  animation: page-flicker-in 0.2s steps(3);
+}
+.page-leave-active {
+  animation: page-flicker-out 0.15s steps(2);
+}
+@keyframes page-flicker-in {
+  0% { opacity: 0; }
+  40% { opacity: 1; }
+  55% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+@keyframes page-flicker-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

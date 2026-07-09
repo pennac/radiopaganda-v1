@@ -1,0 +1,41 @@
+[build]
+  command = "npm run generate"
+  publish = ".output/public"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[functions]
+  directory = "netlify/functions"
+
+# ── Redirect i18n: /en/ e /es/ gestiti da Nuxt ─────────────────
+[[redirects]]
+  from = "/en/*"
+  to   = "/en/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/es/*"
+  to   = "/es/:splat"
+  status = 200
+
+# ── SPA fallback ────────────────────────────────────────────────
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
+
+# ── Headers di sicurezza ────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "camera=(), microphone=(), geolocation=()"
+
+# ── Cache asset Nuxt ────────────────────────────────────────────
+[[headers]]
+  for = "/_nuxt/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

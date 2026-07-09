@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "progetto": "Project",
+    "bestiario": "Bestiary",
+    "manifesto": "Manifesto",
+    "test": "Classification",
+    "lang": "EN",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "menuCounter": "Total classifications"
+  },
+  "home": {
+    "cta": "Discover your order"
+  },
+  "footer": {
+    "claim": "Applied Sociological Studies. On You.",
+    "legal": "This site is satire. Classification is not legally binding. But it is emotionally.",
+    "social": "Instagram",
+    "privacy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "cookiePrefs": "Cookie preferences"
+  },
+  "error": {
+    "title": "CLASSIFICATION\nNOT FOUND.",
+    "meta": "EXEMPLAR_404 — SPECIES UNKNOWN",
+    "cta": "← Back to the institute"
+  }
+}

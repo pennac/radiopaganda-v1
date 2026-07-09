@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "progetto": "Proyecto",
+    "bestiario": "Bestiario",
+    "manifesto": "Manifiesto",
+    "test": "Clasificación",
+    "lang": "ES",
+    "menuOpen": "Abrir menú",
+    "menuClose": "Cerrar menú",
+    "menuCounter": "Clasificaciones totales"
+  },
+  "home": {
+    "cta": "Descubre tu orden"
+  },
+  "footer": {
+    "claim": "Estudios Sociológicos Aplicados. Sobre Ti.",
+    "legal": "Este sitio es sátira. La clasificación no es jurídicamente vinculante. Pero sí emocionalmente.",
+    "social": "Instagram",
+    "privacy": "Política de Privacidad",
+    "cookiePolicy": "Política de Cookies",
+    "cookiePrefs": "Preferencias de cookies"
+  },
+  "error": {
+    "title": "CLASIFICACIÓN\nNO ENCONTRADA.",
+    "meta": "EXEMPLAR_404 — SPECIES UNKNOWN",
+    "cta": "← Volver al instituto"
+  }
+}

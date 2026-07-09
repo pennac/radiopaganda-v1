@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "progetto": "Progetto",
+    "bestiario": "Bestiario",
+    "manifesto": "Manifesto",
+    "test": "Classificazione",
+    "lang": "IT",
+    "menuOpen": "Apri menu",
+    "menuClose": "Chiudi menu",
+    "menuCounter": "Classificazioni totali"
+  },
+  "home": {
+    "cta": "Scopri che ordine sei"
+  },
+  "footer": {
+    "claim": "Applied Sociological Studies. On You.",
+    "legal": "Questo sito è satira. La classificazione non è giuridicamente vincolante. Ma lo è emotivamente.",
+    "social": "Instagram",
+    "privacy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "cookiePrefs": "Preferenze cookie"
+  },
+  "error": {
+    "title": "CLASSIFICAZIONE\nNON TROVATA.",
+    "meta": "EXEMPLAR_404 — SPECIES UNKNOWN",
+    "cta": "← Torna all'istituto"
+  }
+}

@@ -1,0 +1,22 @@
+# Nuxt
+.nuxt
+.output
+dist
+
+# Node
+node_modules
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Archivio asset/codice orfani (non serve al sito, solo backup locale — 800MB+)
+_archivio-asset-orfani
