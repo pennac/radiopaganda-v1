@@ -1,8 +1,8 @@
 <script setup>
-// Hero Home: layout a due blocchi (SplitMedia), impilato su ogni breakpoint —
-// video sopra, testo sotto (reverse inverte l'ordine mobile di default di
-// SplitMedia; l'override :deep() qui sotto forza la colonna anche su
-// desktop, al posto della riga affiancata di default del componente).
+// Hero Home: layout a due blocchi (SplitMedia).
+// Mobile: video sopra, testo sotto (dato da reverse).
+// Desktop: video a destra, testo a sinistra (reverse inverte anche l'ordine
+// della riga affiancata di default del componente).
 // Il video è il loop ambientale home-loop.mp4 (8s, muto, autoplay).
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
@@ -130,21 +130,6 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .home { min-height: 100vh; }
-
-/* Forza il layout impilato (video sopra, testo sotto) anche su desktop:
-   SplitMedia di default passa a riga affiancata da 900px in su, qui invece
-   vogliamo la stessa colonna del mobile su ogni breakpoint. */
-@media (min-width: 900px) {
-  .home :deep(.split-media) { flex-direction: column; }
-  .home :deep(.split-media__media) {
-    flex: none;
-    min-height: 60vh;
-  }
-  .home :deep(.split-media__content) {
-    flex: none;
-    min-height: auto;
-  }
-}
 
 .home-hero__video {
   width: 100%;

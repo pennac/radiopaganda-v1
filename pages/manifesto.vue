@@ -328,6 +328,12 @@ onBeforeUnmount(() => {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0.92) 100%);
+  /* Puramente decorativo (gradiente per leggibilità testo): non deve
+     intercettare i tap. Senza questo, su mobile il pulsante play interno di
+     YouTube (che appare quando l'autoplay con audio viene bloccato da iOS
+     nonostante il tap su "ATTIVA AUDIO") risultava irraggiungibile — il tap
+     veniva "mangiato" da questo div invece di arrivare all'iframe sotto. */
+  pointer-events: none;
 }
 
 .track__sound {
