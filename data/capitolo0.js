@@ -97,7 +97,10 @@ export const capitolo0 = {
 
   manifesto: {
     slug: 'approvazione',
-    title: 'APPROVAZIONE',
+    // "Approvazione" resta identica in tutte le lingue: è la parola-hook del
+    // ritornello, mai tradotta neanche nei testi EN/ES (vedi lyrics sotto:
+    // "approvazione, approvazione" resta italiano anche lì).
+    title: { it: 'APPROVAZIONE', en: 'APPROVAZIONE', es: 'APPROVAZIONE' },
     subtitle: { it: 'Canzone manifesto dell\'album', en: 'The album\'s manifesto song', es: 'La canción manifiesto del álbum' },
     orderSlug: null,
     youtubeId: { it: 'jesOFHwoglQ', en: 'VpsSHiKibIQ', es: '1kdULFnRzv4' },
@@ -210,7 +213,7 @@ de nada.`,
     {
       slug: 'potestas',
       orderSlug: 'potestas',
-      title: 'ABBIAMO TUTTO',
+      title: { it: 'ABBIAMO TUTTO', en: 'WE HAVE IT ALL', es: 'LO TENEMOS TODO' },
       significato: {
         it: 'La ricchezza non si giustifica: si registra. Chi ha sempre avuto tutto non sente il bisogno di convincere nessuno — nemmeno se stesso.',
         en: "Wealth doesn't need to justify itself: it just states itself. Those who've always had everything feel no need to convince anyone — not even themselves.",
@@ -359,7 +362,7 @@ hacen —`,
     {
       slug: 'fama',
       orderSlug: 'fama',
-      title: 'GUARDATE',
+      title: { it: 'GUARDATE', en: 'WATCH ME', es: 'MÍRAME' },
       significato: {
         it: "Un'esistenza che dipende dallo sguardo altrui non è vanità: è un sistema di sopravvivenza ben progettato. La canzone suona come un successo — ed è esattamente il punto.",
         en: "An existence that depends on being watched isn't vanity: it's a well-designed survival system. The song sounds like a hit — that's exactly the point.",
@@ -556,7 +559,7 @@ soy —`,
     {
       slug: 'labor',
       orderSlug: 'labor',
-      title: 'LA MACCHINA NON DORME',
+      title: { it: 'LA MACCHINA NON DORME', en: 'THE MACHINE NEVER SLEEPS', es: 'LA MÁQUINA NO DUERME' },
       significato: {
         it: 'Il sacrificio è diventato virtù, la stanchezza un curriculum. La macchina non chiede di fermarsi: aspetta solo che tu decida da sola di non farlo.',
         en: "Sacrifice has become virtue, exhaustion a résumé line. The machine doesn't ask you to keep going: it just waits for you to decide that on your own.",
@@ -705,7 +708,7 @@ nada`,
     {
       slug: 'massa',
       orderSlug: 'massa',
-      title: 'CI SIAMO',
+      title: { it: 'CI SIAMO', en: "WE'RE HERE", es: 'ESTAMOS' },
       significato: {
         it: "Esistere si è ridotto a pubblicare. Non importa cosa si condivide, importa farlo — insieme, uguali, nello stesso istante.",
         en: "Existing has been reduced to posting. It doesn't matter what you share, only that you do — together, identical, in the same instant.",
@@ -956,7 +959,7 @@ esta...`,
     {
       slug: 'rebelles',
       orderSlug: 'rebelles',
-      title: 'FUORI',
+      title: { it: 'FUORI', en: 'OUT', es: 'FUERA' },
       significato: {
         it: 'Ogni fuga dal sistema è già stata catalogata, prezzata e messa in abbonamento. La libertà premium ha diritto al reso.',
         en: 'Every escape from the system has already been catalogued, priced, and put on a subscription plan. Premium freedom comes with a refund policy.',
@@ -1170,7 +1173,7 @@ satisfechas o reembolsadas.`,
     {
       slug: 'crucesignati',
       orderSlug: 'crucesignati',
-      title: 'RAGIONE',
+      title: { it: 'RAGIONE', en: 'RIGHT', es: 'RAZÓN' },
       significato: {
         it: "Avere ragione è diventato un loop che si autoalimenta: non serve convincere nessuno, basta ripeterlo abbastanza forte. Il sistema ringrazia per l'indignazione — è il suo carburante preferito.",
         en: "Being right has become a self-feeding loop: no need to convince anyone, just repeat it loud enough. The system thanks you for your outrage — it's its favorite fuel.",
@@ -1461,7 +1464,7 @@ ellos—
     {
       slug: 'submersi',
       orderSlug: 'submersi',
-      title: 'SEMPE ACCUSÌ',
+      title: { it: 'SEMPE ACCUSÌ', en: 'ALWAYS LIKE THIS', es: 'SIEMPRE ASÍ' },
       significato: {
         it: 'Come le tarantate che danzavano per sopravvivere al morso, i Sommersi non si fermano mai — non per scelta, ma perché fermarsi non è previsto. Qui Radiopaganda non ride: osserva.',
         en: 'Like the tarantate who danced to survive the bite, the Submersi never stop — not by choice, but because stopping was never an option. Here Radiopaganda doesn\'t laugh: it watches.',

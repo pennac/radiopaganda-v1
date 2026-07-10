@@ -33,9 +33,9 @@ const embedUrl = computed(() =>
 )
 
 const t = computed(() => ({
-  it: { load: 'Carica il video', note: 'Contenuto esterno da YouTube — verranno inviati dati a Google.' },
-  en: { load: 'Load video', note: 'External content from YouTube — data will be sent to Google.' },
-  es: { load: 'Cargar el video', note: 'Contenido externo de YouTube — se enviarán datos a Google.' },
+  it: { load: 'Carica il video', note: 'Contenuto esterno da YouTube — verranno inviati dati a Google.', comingSoon: 'VIDEO IN ARRIVO' },
+  en: { load: 'Load video', note: 'External content from YouTube — data will be sent to Google.', comingSoon: 'VIDEO COMING SOON' },
+  es: { load: 'Cargar el video', note: 'Contenido externo de YouTube — se enviarán datos a Google.', comingSoon: 'VÍDEO PRÓXIMAMENTE' },
 }[locale.value] || {}))
 </script>
 
@@ -56,7 +56,7 @@ const t = computed(() => ({
       <span class="yt-embed__gate-note">{{ t.note }}</span>
     </button>
     <div v-else class="yt-embed__placeholder">
-      <span class="yt-embed__placeholder-label">VIDEO IN ARRIVO</span>
+      <span class="yt-embed__placeholder-label">{{ t.comingSoon }}</span>
     </div>
   </div>
 </template>

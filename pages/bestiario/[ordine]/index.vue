@@ -18,6 +18,33 @@ const t = computed(() => ({
   description: order.description[locale.value] || order.description.it,
 }))
 
+const ui = computed(() => ({
+  it: {
+    back: '← BESTIARIO',
+    speciesLabel: 'SPECIE CLASSIFICATE',
+    listen: 'ASCOLTA',
+    listenHint: 'ASCOLTA →',
+    songLabel: "LA CANZONE DELL'ORDINE",
+    listenManifesto: 'ASCOLTA NEL MANIFESTO →',
+  },
+  en: {
+    back: '← BESTIARY',
+    speciesLabel: 'CLASSIFIED SPECIES',
+    listen: 'LISTEN',
+    listenHint: 'LISTEN →',
+    songLabel: "THE ORDER'S SONG",
+    listenManifesto: 'LISTEN IN THE MANIFESTO →',
+  },
+  es: {
+    back: '← BESTIARIO',
+    speciesLabel: 'ESPECIES CLASIFICADAS',
+    listen: 'ESCUCHA',
+    listenHint: 'ESCUCHA →',
+    songLabel: 'LA CANCIÓN DE LA ORDEN',
+    listenManifesto: 'ESCUCHA EN EL MANIFIESTO →',
+  },
+}[locale.value] || {}))
+
 useHead({
   title: `${order.name} — Bestiario — RADIOPAGANDA`,
   meta: computed(() => [
@@ -37,6 +64,7 @@ function cardFor(sp) { return sp.card[locale.value] || sp.card.it }
 // Canzone di Capitolo 0 collegata a questo ordine (via orderSlug), con testo e significato.
 const lyricsLabel = computed(() => ({ it: 'TESTO', en: 'LYRICS', es: 'LETRA' }[locale.value] || 'TESTO'))
 const song = computed(() => capitolo0.songs.find((s) => s.orderSlug === order.slug))
+const songTitle = computed(() => song.value?.title?.[locale.value] || song.value?.title?.it)
 const songSignificato = computed(() => song.value?.significato?.[locale.value] || song.value?.significato?.it)
 // Loop muto decorativo (stesso file usato in /capitoli/0), non il video reale
 // della canzone: SongVideo lo mostra comunque senza audio (muted hardcoded),
@@ -67,7 +95,7 @@ onMounted(() => {
 <template>
   <div class="ordine">
     <div class="ordine__inner">
-      <NuxtLink :to="localePath('/bestiario')" class="ordine__back">← BESTIARIO</NuxtLink>
+      <NuxtLink :to="localePath('/bestiario')" class="ordine__back">{{ ui.back }}</NuxtLink>
 
       <div class="ordine__head">
         <span class="ordine__num">{{ String(order.number).padStart(2, '0') }} / 07</span>
@@ -81,7 +109,7 @@ onMounted(() => {
       </div>
 
       <div class="ordine__species">
-        <p class="ordine__species-label">SPECIE CLASSIFICATE</p>
+        <p class="ordine__species-label">{{ ui.speciesLabel }}</p>
         <div ref="gridEl" class="species-grid" :class="{ 'is-visible': gridVisible }">
           <details v-for="sp in order.species" :id="sp.slug" :key="sp.slug" class="species-card">
             <summary class="species-card__summary">
@@ -112,15 +140,15 @@ onMounted(() => {
           <NuxtLink
             :to="localePath('/manifesto') + '#' + order.slug"
             class="ordine__song-cover-link"
-            :aria-label="`ASCOLTA: ${song.title}`"
+            :aria-label="`${ui.listen}: ${songTitle}`"
           >
-            <SongVideo :src="songCoverSrc" :youtube-id="songYoutubeId" :title="song.title" />
-            <span class="ordine__song-cover-hint">ASCOLTA →</span>
+            <SongVideo :src="songCoverSrc" :youtube-id="songYoutubeId" :title="songTitle" />
+            <span class="ordine__song-cover-hint">{{ ui.listenHint }}</span>
           </NuxtLink>
         </template>
 
-        <p class="ordine__song-label">LA CANZONE DELL'ORDINE</p>
-        <h2 class="ordine__song-title">{{ song.title }}</h2>
+        <p class="ordine__song-label">{{ ui.songLabel }}</p>
+        <h2 class="ordine__song-title">{{ songTitle }}</h2>
         <blockquote class="ordine__song-significato">{{ songSignificato }}</blockquote>
 
         <details class="song__lyrics">
@@ -135,7 +163,7 @@ onMounted(() => {
 
         <template #cta>
           <NuxtLink :to="localePath('/manifesto') + '#' + order.slug" class="ordine__song-link">
-            ASCOLTA NEL MANIFESTO →
+            {{ ui.listenManifesto }}
           </NuxtLink>
         </template>
       </SplitMedia>

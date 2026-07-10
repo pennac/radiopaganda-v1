@@ -18,6 +18,13 @@ const props = defineProps({
 // "Riduci il movimento": niente autoplay, il video resta fermo sul primo
 // frame invece di partire in loop da solo.
 const prefersReducedMotion = useReducedMotion()
+
+const { locale } = useI18n()
+const videoComingSoon = computed(() => ({
+  it: 'VIDEO IN ARRIVO',
+  en: 'VIDEO COMING SOON',
+  es: 'VÍDEO PRÓXIMAMENTE',
+}[locale.value] || 'VIDEO IN ARRIVO'))
 </script>
 
 <template>
@@ -35,7 +42,7 @@ const prefersReducedMotion = useReducedMotion()
     />
     <YouTubeEmbed v-else-if="youtubeId" :id="youtubeId" :title="title" />
     <div v-else class="song-video__placeholder">
-      <span class="song-video__placeholder-label">VIDEO IN ARRIVO</span>
+      <span class="song-video__placeholder-label">{{ videoComingSoon }}</span>
     </div>
   </div>
 </template>

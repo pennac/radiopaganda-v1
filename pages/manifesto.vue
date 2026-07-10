@@ -32,6 +32,11 @@ const soundLabel = computed(() => ({
   en: { on: 'SOUND ON', off: 'TAP FOR SOUND' },
   es: { on: 'SONIDO ACTIVO', off: 'ACTIVAR SONIDO' },
 }[locale.value] || { on: 'SOUND ON', off: 'TAP FOR SOUND' }))
+const videoComingSoon = computed(() => ({
+  it: 'VIDEO IN ARRIVO',
+  en: 'VIDEO COMING SOON',
+  es: 'VÍDEO PRÓXIMAMENTE',
+}[locale.value] || 'VIDEO IN ARRIVO'))
 
 // Nota: qui NON leggiamo videoSrc (i file reali delle canzoni, pesanti,
 // self-hosted) — /manifesto mostra di default lo stesso loop muto decorativo
@@ -55,8 +60,8 @@ const tracks = computed(() => {
     },
     {
       slug: manifesto.slug,
-      title: manifesto.title,
-      eyebrow: '00 · APPROVAZIONE',
+      title: manifesto.title[locale.value] || manifesto.title.it,
+      eyebrow: `00 · ${manifesto.title[locale.value] || manifesto.title.it}`,
       order: null,
       coverSrc: manifesto.coverSrc || null,
       youtubeId: manifesto.youtubeId?.[locale.value] || manifesto.youtubeId?.it || null,
@@ -66,7 +71,7 @@ const tracks = computed(() => {
     },
     ...capitolo0.songs.map((song) => ({
       slug: song.slug,
-      title: song.title,
+      title: song.title[locale.value] || song.title.it,
       eyebrow: null,
       order: getOrder(song.orderSlug),
       coverSrc: song.coverSrc || null,
@@ -225,7 +230,7 @@ onBeforeUnmount(() => {
         preload="metadata"
       />
       <div v-else class="track__placeholder">
-        <span class="track__placeholder-label">VIDEO IN ARRIVO</span>
+        <span class="track__placeholder-label">{{ videoComingSoon }}</span>
       </div>
       <div class="track__overlay" />
 

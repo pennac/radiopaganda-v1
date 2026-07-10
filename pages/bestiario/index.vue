@@ -18,14 +18,20 @@ useHead({
 
 const ui = computed(() => ({
   it: {
+    label: 'BESTIARIO',
+    title: '7 ORDINI',
     intro: 'Sette Ordini. Ognuno raccoglie chi, nel sistema, gioca lo stesso ruolo — chi comanda, chi parla, chi lavora, chi consuma, chi crede di scappare, chi combatte per la tribù, chi resta invisibile. Ogni Ordine si divide in specie: archetipi precisi, non caricature generiche. Scegli un Ordine per conoscere le sue specie.',
     ctaSongs: 'Ascolta le canzoni di Capitolo 0',
   },
   en: {
+    label: 'BESTIARY',
+    title: '7 ORDERS',
     intro: 'Seven Orders. Each one gathers those who play the same role in the system — those who rule, those who speak, those who work, those who consume, those who think they escape, those who fight for the tribe, those who stay invisible. Each Order is split into species: precise archetypes, not generic caricatures. Pick an Order to meet its species.',
     ctaSongs: 'Listen to the Chapter 0 songs',
   },
   es: {
+    label: 'BESTIARIO',
+    title: '7 ÓRDENES',
     intro: 'Siete Órdenes. Cada una reúne a quienes, en el sistema, juegan el mismo papel — quienes mandan, quienes hablan, quienes trabajan, quienes consumen, quienes creen escapar, quienes luchan por la tribu, quienes permanecen invisibles. Cada Orden se divide en especies: arquetipos precisos, no caricaturas genéricas. Elige una Orden para conocer sus especies.',
     ctaSongs: 'Escucha las canciones del Capítulo 0',
   },
@@ -56,8 +62,8 @@ onMounted(() => {
 <template>
   <div class="bestiario">
     <div class="bestiario__inner">
-      <p class="bestiario__label">BESTIARIO</p>
-      <h1 class="bestiario__title">7 ORDINI</h1>
+      <p class="bestiario__label">{{ ui.label }}</p>
+      <h1 class="bestiario__title">{{ ui.title }}</h1>
       <p class="bestiario__intro">{{ ui.intro }}</p>
       <div ref="gridEl" class="orders-grid" :class="{ 'is-visible': gridVisible }">
         <NuxtLink
